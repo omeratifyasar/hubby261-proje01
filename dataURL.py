@@ -3,6 +3,10 @@ class DataURL:
   dataFile = "dataURL.txt"
 
   def __init__(self):
+    """
+
+    :rtype: object
+    """
     fileTest = open(self.dataFile, 'a')
     fileTest.close()
 

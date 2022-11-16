@@ -18,12 +18,24 @@ class GetURL:
         getOpen = open(self.getFile, 'w')
 
         for dataGet in dataOpen:
+
+            kontrolHTTP = dataGet[:7]
+            kontrolHTTPS = dataGet[:8]
+
+            if kontrolHTTP == " http://: " or kontrolHTTPS == " https://: "
+                print("Ziyaret edilen URL : " + dataGet)
+
             webSite = urllib.request.urlopen(dataGet)
             getBytes = webSite.read()
             webPage = getBytes.decode("utf8")
             webSite.close()
             soup = BeautifulSoup(webPage, 'html.parser')
             getOpen.write(dataGet.strip() + " - " + soup.title.contents[0] + "\n")
+
+        else:
+
+            print("Ön ek eksik: " + dataGet)
+
         dataOpen.close()
         getOpen.close()
 
@@ -33,5 +45,9 @@ class GetURL:
 
         getOpen = open(self.getFile, 'r')
         for dataShow in getOpen:
-          print(dataShow)
+            print(dataShow)
         getOpen.close()
+
+
+
+
