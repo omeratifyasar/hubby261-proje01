@@ -1,3 +1,1 @@
-# miniOrumcek
-Mini Örümcek
-Kullanılan modül adı: bs4
+# hubby261-proje01
